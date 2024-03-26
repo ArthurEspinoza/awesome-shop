@@ -2,6 +2,7 @@
 import axios from "axios"
 import { ref } from "vue";
 import { useRoute  } from "vue-router";
+import ImageCarousel from "../components/ImageCarousel.vue";
 
 const product = ref({});
 const route = useRoute();
@@ -30,22 +31,16 @@ getProduct(route.params.id);
 </script>
 <template>
     <div>
+        <v-btn variant="text" to="/">
+            <v-icon icon="mdi-arrow-left"></v-icon>
+            Return to the products
+        </v-btn>
         <div class="details__container my-5">
-            <v-row>
+            <v-row >
                 <v-col
                     cols="12"
                     md="6">
-                    <v-carousel v-if="product.images && product.images.length > 0"
-                        height="250">
-                        <v-carousel-item
-                            v-for="image in product.images" :key="image.id">
-                            <v-img
-                                :src="image.url"
-                                height="250"
-                                cover
-                            ></v-img>
-                        </v-carousel-item>
-                    </v-carousel>
+                    <ImageCarousel :images="product.images"/>
                 </v-col>
                 <v-col
                     cols="12"
@@ -67,6 +62,5 @@ getProduct(route.params.id);
                 </v-col>
             </v-row>
         </div>
-        
     </div>
 </template>

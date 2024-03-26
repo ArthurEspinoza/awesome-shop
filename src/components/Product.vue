@@ -14,7 +14,7 @@ const props = defineProps({
     <v-card>
         <v-img
             height="150"
-            :src="props.images[0].url"
+            :src="props.images[0].url || 'https://static.thenounproject.com/png/3850446-200.png'"
         ></v-img>
         <v-card-item>
             <v-card-title>{{ props.name }}</v-card-title>
@@ -26,7 +26,7 @@ const props = defineProps({
                 Details
             </v-btn>
             <v-btn variant="tonal" color="green" rounded="lg">
-                <v-icon icon="mdi-cart" class="mr-2"></v-icon>
+                <v-icon icon="mdi-cart-plus" class="mr-2"></v-icon>
                 Add
             </v-btn>
         </v-card-actions>

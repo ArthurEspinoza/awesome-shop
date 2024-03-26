@@ -11,3 +11,8 @@
 .details__actions{
     width: 100%;
 }
+@media (max-width: 420px){
+    .details__container {
+        width: 85%
+    }
+}

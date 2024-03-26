@@ -25,8 +25,18 @@ const drawer = ref(false);
         v-model="drawer"
         temporary
       >
-        <v-list-item link title="Products" to="/"></v-list-item>
-        <v-list-item link title="Cart" to="/cart"></v-list-item>
+        <v-list-item link to="/">
+          <template v-slot:prepend>
+            <v-icon icon="mdi-list-box-outline"></v-icon>
+          </template>
+          <v-list-item-title>Products</v-list-item-title>
+        </v-list-item>
+        <v-list-item link to="/cart">
+          <template v-slot:prepend>
+            <v-icon icon="mdi-cart"></v-icon>
+          </template>
+          <v-list-item-title>Cart</v-list-item-title>
+        </v-list-item>
       </v-navigation-drawer>
 
       <v-main style="height: 500px;">
