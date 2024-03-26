@@ -1,7 +1,7 @@
 <script setup>
 import { useCartStore } from "../store/cart";
 const useCart = useCartStore();
-const {addProduct, deleteProduct} = useCart;
+const {addProduct, removeProducts, deleteProduct} = useCart;
 const props = defineProps({
     id: String,
     name: String,
@@ -27,7 +27,7 @@ const props = defineProps({
                         <div class="cartItem__buttons">
                             <div class="d-flex align-center">
                                 <v-btn density="compact" min-width="32" class="px-0"
-                                    @click="deleteProduct(props)">
+                                    @click="removeProducts(props)">
                                     <v-icon icon="mdi-minus"></v-icon>
                                 </v-btn>
                                 <span class="text-h6 mx-2 mx-md-4">{{ props.amount }}</span>
@@ -36,7 +36,7 @@ const props = defineProps({
                                     <v-icon icon="mdi-plus"></v-icon>
                                 </v-btn>
                             </div>
-                            <v-btn color="red" class="mt-2">
+                            <v-btn color="red" class="mt-2" @click="deleteProduct(props.id)">
                                 Delete
                                 <v-icon icon="mdi-delete" class="ml-2"></v-icon>
                             </v-btn>

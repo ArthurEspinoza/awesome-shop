@@ -26,7 +26,7 @@ export const useCartStore = defineStore('cart', () => {
             })
         }
     }
-    const deleteProduct = (product) => {
+    const removeProducts = (product) => {
         let index = cart.value.findIndex(item => item.data.id === product.id);
         let item = cart.value[index];
         if(item.amount === 1){
@@ -43,10 +43,14 @@ export const useCartStore = defineStore('cart', () => {
             })
         }
     }
+    const deleteProduct = (id) => {
+        cart.value = cart.value.filter(item => item.data.id !== id);
+    }
     return {
         cart,
         total,
         addProduct,
+        removeProducts,
         deleteProduct
     }
 })
