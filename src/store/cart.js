@@ -3,6 +3,13 @@ import { defineStore } from "pinia";
 
 export const useCartStore = defineStore('cart', () => {
     const cart = ref([]);
+    const total = computed(() => {
+        let total = 0;
+        cart.value.forEach(item => {
+            total += parseFloat(item.data.price) * item.amount
+        })
+        return total;
+    })
     const addProduct = (product) => {
         let matchIndex = cart.value.findIndex(item => item.data.id === product.id);
         if(matchIndex === -1){
@@ -38,6 +45,7 @@ export const useCartStore = defineStore('cart', () => {
     }
     return {
         cart,
+        total,
         addProduct,
         deleteProduct
     }

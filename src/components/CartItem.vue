@@ -19,8 +19,8 @@ const props = defineProps({
         <v-card-item>
             <v-row>
                 <v-col cols="12" md="8" class="d-flex justify-start gc-5">
-                    <div>
-                        <v-img :src="props.images[0].url" width="150" height="150" cover></v-img>
+                    <div class="cartItem__img">
+                        <v-img :src="props.images[0].url" cover class="rounded-xl"></v-img>
                     </div>
                     <div class="cartItem__data">
                         <h5 class="text-h5">{{ props.name }}</h5>

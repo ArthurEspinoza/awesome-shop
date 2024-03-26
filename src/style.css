@@ -22,9 +22,19 @@
     flex-direction: column;
     width: 100%;
 }
-
+.cartItem__img .v-img{
+    width: 150px;
+    height: 150px;
+}
 @media (max-width: 420px){
     .details__container {
         width: 85%
+    }
+    .cart__container{
+        width: 85%;
+    }
+    .cartItem__img .v-img{
+        height: 85px;
+        width: 85px;
     }
 }
