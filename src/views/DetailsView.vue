@@ -2,10 +2,13 @@
 import axios from "axios"
 import { ref } from "vue";
 import { useRoute  } from "vue-router";
+import {useCartStore} from "../store/cart";
 import ImageCarousel from "../components/ImageCarousel.vue";
 
 const product = ref({});
 const route = useRoute();
+const useCart = useCartStore();
+const {addProduct} = useCart;
 const getProduct = async(id) => {
     try {
         const {data} = await axios.get(`https://eshop-deve.herokuapp.com/api/v2/products/${id}`, {
@@ -53,7 +56,7 @@ getProduct(route.params.id);
                         </div>
                         <div class="details__actions d-flex gc-3 mt-3 justify-start">
                             <span class="text-bold text-h5">Stock: {{ product.quantity }}</span>
-                            <v-btn color="teal-darken-2">
+                            <v-btn color="teal-darken-2" @click="addProduct(product)">
                                 <v-icon icon="mdi-cart-plus" class="mr-2"></v-icon>
                                 Add
                             </v-btn>
