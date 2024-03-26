@@ -1,6 +1,7 @@
 <script setup>
 import axios from "axios";
 import {ref} from "vue";
+import Product from "../components/Product.vue";
 
 const products = ref([]);
 
@@ -32,8 +33,20 @@ const getProducts = async() => {
 getProducts();
 </script>
 <template>
-    <div class="container">
-        Products
-        {{ products }}
+    <div class="container pa-5">
+        <v-row>
+            <v-col
+                v-for="(product) in products" :key="product.id"
+                md="3"
+                cols="6">
+                <Product
+                    :id="product.id"
+                    :name="product.name"
+                    :images="product.images"
+                    :currency="product.currency"
+                    :price="product.price"
+                />
+            </v-col>
+        </v-row>
     </div>
 </template>
