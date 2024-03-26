@@ -26,6 +26,10 @@
     width: 150px;
     height: 150px;
 }
+.overlayCard{
+    position: absolute;
+    top: 0;
+}
 @media (max-width: 420px){
     .details__container {
         width: 85%
