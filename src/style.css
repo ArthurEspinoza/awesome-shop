@@ -11,6 +11,18 @@
 .details__actions{
     width: 100%;
 }
+.cart__container{
+    width: 60%;
+    margin-inline: auto;
+}
+.cartItem__data{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+}
+
 @media (max-width: 420px){
     .details__container {
         width: 85%

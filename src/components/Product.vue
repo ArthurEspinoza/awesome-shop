@@ -1,4 +1,7 @@
 <script setup>
+import {useCartStore} from "../store/cart";
+const useCart = useCartStore();
+const {addProduct} = useCart;
 const props = defineProps({
     id: String,
     name: String,
@@ -25,7 +28,7 @@ const props = defineProps({
                 <v-icon icon="mdi-eye-outline" class="mr-2"></v-icon>
                 Details
             </v-btn>
-            <v-btn variant="tonal" color="green" rounded="lg">
+            <v-btn variant="tonal" color="green" rounded="lg" @click="addProduct(props)">
                 <v-icon icon="mdi-cart-plus" class="mr-2"></v-icon>
                 Add
             </v-btn>
