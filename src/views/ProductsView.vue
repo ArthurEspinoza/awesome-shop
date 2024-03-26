@@ -4,6 +4,7 @@ import {ref} from "vue";
 import Product from "../components/Product.vue";
 
 const products = ref([]);
+const loading = ref(true);
 
 const getProducts = async() => {
     try {
@@ -27,6 +28,8 @@ const getProducts = async() => {
         }
     } catch (error) {
         console.log("Error fetching the products: ", error);
+    } finally {
+        loading.value = false;
     }
 };
 
@@ -34,7 +37,7 @@ getProducts();
 </script>
 <template>
     <div class="container pa-5">
-        <v-row>
+        <v-row v-if="!loading">
             <v-col
                 v-for="(product) in products" :key="product.id"
                 md="3"
@@ -48,5 +51,12 @@ getProducts();
                 />
             </v-col>
         </v-row>
+        <v-progress-circular
+            class="loadingProgress"    
+            v-else
+            color="teal"
+            indeterminate
+        ></v-progress-circular>
+
     </div>
 </template>

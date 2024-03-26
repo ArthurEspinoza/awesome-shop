@@ -6,6 +6,7 @@ import {useCartStore} from "../store/cart";
 import ImageCarousel from "../components/ImageCarousel.vue";
 
 const product = ref({});
+const loading = ref(true);
 const route = useRoute();
 const useCart = useCartStore();
 const {addProduct} = useCart;
@@ -28,6 +29,8 @@ const getProduct = async(id) => {
         } || {};
     } catch (error) {
         console.log("Error fetching the product: ", error);
+    } finally {
+        loading.value = false;
     }
 }
 getProduct(route.params.id);
@@ -38,7 +41,7 @@ getProduct(route.params.id);
             <v-icon icon="mdi-arrow-left"></v-icon>
             Return to the products
         </v-btn>
-        <div class="details__container my-5">
+        <div class="details__container my-5" v-if="!loading">
             <v-row >
                 <v-col
                     cols="12"
@@ -65,5 +68,11 @@ getProduct(route.params.id);
                 </v-col>
             </v-row>
         </div>
+        <v-progress-circular
+            class="loadingProgress"    
+            v-else
+            color="teal"
+            indeterminate
+        ></v-progress-circular>
     </div>
 </template>

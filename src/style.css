@@ -30,6 +30,11 @@
     position: absolute;
     top: 0;
 }
+.loadingProgress.v-progress-circular {
+    position: absolute;
+    top: 50%;
+    left: 48%;
+}
 @media (max-width: 420px){
     .details__container {
         width: 85%
