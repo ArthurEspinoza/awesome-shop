@@ -1,6 +1,11 @@
 <script setup>
 import {RouterView} from "vue-router";
 import {ref} from "vue";
+import { storeToRefs } from "pinia";
+import {useCartStore} from "./store/cart";
+
+const useCart = useCartStore();
+const {cartLength} = storeToRefs(useCart);
 const drawer = ref(false);
 
 </script>
@@ -10,7 +15,7 @@ const drawer = ref(false);
       <!-- <v-system-bar color="deep-purple darken-3"></v-system-bar> -->
 
       <v-app-bar
-        color="primary"
+        color="teal"
         prominent
       >
         <v-app-bar-nav-icon variant="text" @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
@@ -18,6 +23,11 @@ const drawer = ref(false);
         <v-toolbar-title>Awesome Shop</v-toolbar-title>
 
         <v-spacer></v-spacer>
+
+        <v-btn to="/cart">
+          <span class="text-h6">{{ cartLength }}</span>
+          <v-icon icon="mdi-cart-outline" class="text-h6 ml-2"></v-icon>
+        </v-btn>
 
       </v-app-bar>
 

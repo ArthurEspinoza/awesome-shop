@@ -31,7 +31,7 @@ getProduct(route.params.id);
 </script>
 <template>
     <div>
-        <v-btn variant="text" to="/">
+        <v-btn variant="text" to="/" class="text-grey-darken-3">
             <v-icon icon="mdi-arrow-left"></v-icon>
             Return to the products
         </v-btn>
@@ -53,8 +53,8 @@ getProduct(route.params.id);
                         </div>
                         <div class="details__actions d-flex gc-3 mt-3 justify-start">
                             <span class="text-bold text-h5">Stock: {{ product.quantity }}</span>
-                            <v-btn color="green">
-                                <v-icon icon="mdi-cart" class="mr-2"></v-icon>
+                            <v-btn color="teal-darken-2">
+                                <v-icon icon="mdi-cart-plus" class="mr-2"></v-icon>
                                 Add
                             </v-btn>
                         </div>

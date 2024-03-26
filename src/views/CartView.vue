@@ -22,7 +22,7 @@ const goHome = () => {
             <h5 class="text-h5 text-center">Your cart</h5>
             <div class="d-flex justify-space-between align-center mb-3">
                 <h4 class="text-h4">Total: ${{ total }}</h4>
-                <v-btn color="green" rounded="xl" @click="showDialog = !showDialog">
+                <v-btn color="teal-lighten-1" rounded="xl" @click="showDialog = !showDialog">
                     <v-icon icon="mdi-checkbox-marked-outline"></v-icon>
                     Checkout my cart
                 </v-btn>
@@ -63,13 +63,16 @@ const goHome = () => {
                 </v-card-text>
                 <v-card-actions>
                     <v-btn
-                        text="Go shopping"
+                        text="Go Shopping"
                         @click="goHome"
+                        color="teal-lighten-1"
                     ></v-btn>
                     <v-btn
                         class="ms-auto"
-                        text="Proceed with payment"
+                        text="Go Payment"
+                        variant="tonal"
                         @click="goHome"
+                        color="teal-darken-2"
                     ></v-btn>
                 </v-card-actions>
             </v-card>

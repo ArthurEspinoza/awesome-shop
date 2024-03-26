@@ -36,7 +36,7 @@ const props = defineProps({
                                     <v-icon icon="mdi-plus"></v-icon>
                                 </v-btn>
                             </div>
-                            <v-btn color="red" class="mt-2" @click="deleteProduct(props.id)">
+                            <v-btn color="red-darken-1" class="mt-2" @click="deleteProduct(props.id)">
                                 Delete
                                 <v-icon icon="mdi-delete" class="ml-2"></v-icon>
                             </v-btn>

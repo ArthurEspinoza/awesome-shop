@@ -3,6 +3,9 @@ import { defineStore } from "pinia";
 
 export const useCartStore = defineStore('cart', () => {
     const cart = ref([]);
+    const cartLength = computed(() => {
+        return cart.value.length;
+    })
     const total = computed(() => {
         let total = 0;
         cart.value.forEach(item => {
@@ -51,6 +54,7 @@ export const useCartStore = defineStore('cart', () => {
     }
     return {
         cart,
+        cartLength,
         total,
         addProduct,
         removeProducts,

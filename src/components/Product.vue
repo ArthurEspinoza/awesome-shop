@@ -24,11 +24,11 @@ const props = defineProps({
             <v-card-subtitle>${{ props.price }} {{ props.currency }}</v-card-subtitle>
         </v-card-item>
         <v-card-actions>
-            <v-btn color="primary" :to="`/details/${props.id}`">
+            <v-btn color="teal-lighten-1" :to="`/details/${props.id}`">
                 <v-icon icon="mdi-eye-outline" class="mr-2"></v-icon>
                 Details
             </v-btn>
-            <v-btn variant="tonal" color="green" rounded="lg" @click="addProduct(props)">
+            <v-btn variant="tonal" color="teal-darken-2" rounded="lg" @click="addProduct(props)">
                 <v-icon icon="mdi-cart-plus" class="mr-2"></v-icon>
                 Add
             </v-btn>
